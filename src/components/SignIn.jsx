@@ -2,14 +2,13 @@ import axios from 'axios'
 import React, { useState } from 'react'
 import NavBar from './NavBar'
 
-const SignUp = () => {
+const SignIn = () => {
 
     const [data, setdata] = useState(
         {
 
             "name": "",
             "emailid": "",
-            "password": ""
 
         }
 
@@ -19,10 +18,10 @@ const SignUp = () => {
     }
     const readValue = () => {
         console.log(data)
-        axios.post("http://localhost:8081/signUp", data).then((Response) => {
+        axios.post("http://localhost:8081/signIn", data).then((Response) => {
             console.log(data)
             if (Response.data.status == "success") {
-                alert("Signed Up successfully")
+                alert("Signed In successfully")
             } else {
                 alert("Error")
             }
@@ -32,7 +31,7 @@ const SignUp = () => {
     return (
         <div>
             <NavBar/>
-            <center><h1>SIGN-UP</h1></center>
+            <center><h1>SIGN-IN</h1></center>
             <br /><br />
 
             <div className="container">
@@ -40,11 +39,6 @@ const SignUp = () => {
                     <div className="col col-2 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
 
                         <div className="row g-3">
-                            <div className="col col-12 col-sm-6 col-lg-6 col-xl-6 col-xxl-6">
-
-                                <label htmlFor="" className="form-label">Name</label>
-                                <input type="text" className="form-control" value={data.name} name='name' onChange={inputHandler} />
-                            </div>
                             <div className="col col-12 col-sm-6 col-lg-6 col-xl-6 col-xxl-6">
 
                                 <label htmlFor="" className="form-label">Email Id</label>
@@ -56,7 +50,7 @@ const SignUp = () => {
                                 <input type="password" name="password" value={data.password} onChange={inputHandler} id="" className="form-control" />
                             </div>
                             <div className="col col-12 col-sm-6 col-lg-6 col-xl-6 col-xxl-6">
-                                <button className="btn btn-primary" onClick={readValue}>Sign Up</button>
+                                <button className="btn btn-primary" onClick={readValue}>Sign In</button>
                             </div>
                         </div>
 
@@ -68,4 +62,4 @@ const SignUp = () => {
     )
 }
 
-export default SignUp
+export default SignIn
