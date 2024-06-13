@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 const SignUp = () => {
 
@@ -55,6 +56,9 @@ const SignUp = () => {
                             </div>
                             <div className="col col-12 col-sm-6 col-lg-6 col-xl-6 col-xxl-6">
                                 <button className="btn btn-primary" onClick={readValue}>Sign Up</button>
+                            </div>
+                            <div className="col col-12 col-sm-6 col-lg-6 col-xl-6 col-xxl-6">
+                            <Link to="/"> <button className="btn btn-success">back to sign in</button></Link>
                             </div>
                         </div>
 
